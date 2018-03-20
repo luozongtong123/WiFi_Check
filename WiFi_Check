@@ -62,7 +62,7 @@ echo $$ > $lockfile
 
 # We can perform check
 echo "Performing Network check for $wlan"
-if ifconfig $wlan | grep -q "inet addr:" ; then
+if ifconfig $wlan | grep "inet " ; then
     echo "Network is Okay"
 else
     echo "Network connection down! Attempting reconnection."
