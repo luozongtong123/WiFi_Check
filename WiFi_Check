@@ -69,14 +69,16 @@ else
     ifdown $wlan
     sleep 5
     ifup --force $wlan
+    
     while !(ifconfig $wlan | grep -c "inet ");
     do
-    sleep 25
-    echo "Network connection down! Attempting reconnection."
-    ifdown $wlan
-    sleep 5
-    ifup --force $wlan
+        sleep 25
+        echo "Network connection down! Attempting reconnection."
+        ifdown $wlan
+        sleep 5
+        ifup --force $wlan
     done
+    
     ifconfig $wlan | grep "inet "
 fi
 
